@@ -12,9 +12,6 @@
     "pub": "npm publish --access public",
     "off": "tsc src/shared/offsets.ts && node src/shared/offsets.js"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jdgamble555/adv-firestore-functions.git"
