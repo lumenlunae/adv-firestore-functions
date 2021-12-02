@@ -9,10 +9,7 @@
         "skipLibCheck": true
     },
     "include": [
-        "**/*.ts"
-    ],
-    "files": [
-        "./src/index.ts",
+        "src/**/*"
     ],
     "exclude": [
         "node_modules"
