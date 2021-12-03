@@ -244,7 +244,8 @@ export async function arrayIndex(
     docFieldsToIndex?: string | string[],
     docFieldName?: string,
     docSortField?: string,
-    docSortType?: "id" | "value" | null
+    docSortType?: "id" | "value" | "data" | null,
+    docData?: any,
   } = {}
 
 ): Promise<void> {
@@ -267,7 +268,8 @@ export async function arrayIndex(
     docFieldsToIndex: _opts.docFieldsToIndex,
     docFieldName: _opts.docFieldName || rootColName,
     docSortField: _opts.docSortField || "createdAt",
-    docSortType: _opts.docSortType || null
+    docSortType: _opts.docSortType || null,
+    docData: _opts.docData || null
   };
 
   const indexColRef = db.collection(`${opts.indexPath}/${opts.indexColName}`);
@@ -342,7 +344,7 @@ export async function arrayIndex(
         : {
           [fieldValue]: opts.docSortType === "value"
             ? sortField
-            : true
+            : opts.docSortType === "data" ? opts.docData : true
         };
 
       // get new id possibly from type
